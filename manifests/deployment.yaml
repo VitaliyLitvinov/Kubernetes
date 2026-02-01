@@ -19,7 +19,7 @@ spec:
         app: *app
         version: *version
     spec:
-      initConteiners:
+      initContainers:
         - name: init-service
           image: busybox:1.28
           command:
