@@ -4,7 +4,7 @@ metadata:
   name: first-deployment
   labels:
     app: &app nginx
-    version: &version nginx:1.27.5
+    version: &version 1.27.5
 spec: 
   replicas: 3
   selector:
