@@ -17,3 +17,13 @@ spec:
         limits:
           memory: "128Mi"
           cpu: "500m"
+      livenessProbe:
+        tcpSocket:
+          port: 80
+        initialDelaySeconds: 15
+        periodSeconds: 10
+      readnessProbe:
+        tcpSocket:
+          port: 80
+        initialDelaySeconds: 15
+        periodSeconds: 10
