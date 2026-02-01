@@ -8,6 +8,20 @@ metadata:
     app: nginx
     version: 1.27.5
 spec:
+  initConteiners:
+    - name: init-service
+      image: busybox:1.28
+      command:
+        - 'sh'
+        - '-c'
+        - 'echo Initializing... && sleep 10'
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+        limits:
+          memory: "128Mi"
+          cpu: "500m"      
   containers:
     - name: nginx
       image: nginx:1.27.5
