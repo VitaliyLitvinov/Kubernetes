@@ -1,0 +1,34 @@
+---
+apiVersion: v1 
+kind: Service
+metadata:
+  name: test-st
+  labels:
+    app.kubernetes.io/name: &name test-st
+    app.kubernetes.io/instance: &instance test-st
+    app.kubernetes.io/version: &version v0.0.1
+spec:
+  selector:
+    app.kubernetes.io/name: *name
+    app.kubernetes.io/instance: *instance
+    app.kubernetes.io/version: *version
+  ports:
+    - port: 80
+---
+apiVersion: v1 
+kind: Service 
+metadata:
+  name: test-st-headless
+  labels:
+    app.kubernetes.io/name: &name test-st
+    app.kubernetes.io/instance: &instance test-st
+    app.kubernetes.io/version: &version v0.0.1
+scec:
+  ClusterIP: None
+  selector:
+    app.kubernetes.io/name: *name
+    app.kubernetes.io/instance: *instance
+    app.kubernetes.io/version: *version
+  ports:
+    - port: 80
+---
